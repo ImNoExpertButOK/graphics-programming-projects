@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::io::{self, BufWriter, Write};
 
+// Preciso mover isso tudo para um modulo separado
 #[derive(Clone, Copy)]
 struct Color {
     r: u8,
