@@ -1,22 +1,7 @@
 mod ppm;
 use ppm::PPMImage;
-
-#[derive(Copy, Clone)]
-struct Vec3 {
-    x: f64,
-    y: f64,
-    z: f64,
-}
-
-impl Vec3 {
-    fn new(x: f64, y: f64, z: f64) -> Self {
-        Vec3 { x, y, z }
-    }
-
-    fn dot(a: &Vec3, b: &Vec3) -> f64 {
-        a.x * b.x + a.y * b.y + a.z * b.z
-    }
-}
+mod vec3;
+use vec3::Vec3;
 
 fn main() {
     let o = PPMImage::new(600, 600, String::from("output"));
