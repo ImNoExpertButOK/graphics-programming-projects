@@ -28,8 +28,8 @@ fn main() {
 
     // Seguindo a nomenclatura do livro, cw e ch significam
     // canvas width e canvas height, respectivamente.
-    let cw: u32 = 600;
-    let ch: u32 = 600;
+    let cw: i32 = 600;
+    let ch: i32 = 600;
 
     // O livro coloca o centro da imagem como o ponto (0,0)
     // então nosso loop anda em quadrantes em torno do centro,
@@ -37,10 +37,10 @@ fn main() {
     // trabalhando com u32 ao negar seus valores podemos dar a
     // volta caso os números sejam muito grandes, então trans-
     // -formamos eles em i64 para termos certeza que caberão.
-    let cw_start: i64 = -(cw as i64 / 2);
-    let cw_end: i64 = cw as i64 / 2;
-    let ch_start: i64 = -(ch as i64 / 2);
-    let ch_end: i64 = ch as i64 / 2;
+    let cw_start: i32 = -cw / 2;
+    let cw_end: i32 = cw / 2;
+    let ch_start: i32 = -ch / 2;
+    let ch_end: i32 = ch / 2;
 
     // Represente a origem dos raios que serão lançados na cena.
     // No livro é chamado de O, mas assim acho mais claro.
@@ -63,5 +63,5 @@ fn main() {
         }
     }
 
-    img.save().expect("Não foi possível criar o arquivo");
+    img.save().expect("Couldn't create file");
 }
