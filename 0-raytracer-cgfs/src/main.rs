@@ -47,14 +47,19 @@ fn main() {
     let _origin: Vec3 = Vec3::new(0.0, 0.0, 0.0);
 
     // Nosso output final.
-    let img = PPMImage::new(cw, ch, String::from("output"));
+    let mut img = PPMImage::new(cw, ch, String::from("output"));
 
     // O loop principal.
-    for _x in cw_start..=cw_end {
-        for _y in ch_start..=ch_end {
+    for x in cw_start..cw_end {
+        for y in ch_start..ch_end {
             // D = CanvasToViewport(x,y)
             // color = TraceRay()
-            // pixel(x, y, color)
+            let color = ppm::Color {
+                r: 128,
+                g: 128,
+                b: 128,
+            };
+            img.pixel(x as i32, y as i32, color);
         }
     }
 
