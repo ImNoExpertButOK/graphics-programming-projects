@@ -18,6 +18,9 @@ pub struct PPMImage {
 
 impl PPMImage {
     pub fn new(width: i32, height: i32, name: String) -> Self {
+        if width <= 0 || height <= 0 {
+            panic!("Images can't have negative dimensions")
+        }
         PPMImage {
             filename: name,
             width: width,
