@@ -26,7 +26,11 @@ fn main() {
 
     let scene = vec![ball_a, ball_b, ball_c];
 
-    let o = PPMImage::new(600, 600, String::from("output"));
+    // Seguindo a nomenclatura do livro, cw e ch significam
+    // canvas width e canvas height, respectivamente.
+    let cw: u32 = 600;
+    let ch: u32 = 600;
 
-    o.save().expect("não foi possível criar o arquivo");
+    let o = PPMImage::new(cw, ch, String::from("output"));
+    o.save().expect("Não foi possível criar o arquivo");
 }
