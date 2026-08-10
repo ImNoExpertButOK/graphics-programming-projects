@@ -11,13 +11,13 @@ pub struct Color {
 
 pub struct PPMImage {
     filename: String,
-    width: u32,
-    height: u32,
+    width: i32,
+    height: i32,
     pixels: Vec<Color>,
 }
 
 impl PPMImage {
-    pub fn new(width: u32, height: u32, name: String) -> Self {
+    pub fn new(width: i32, height: i32, name: String) -> Self {
         PPMImage {
             filename: name,
             width: width,
@@ -33,8 +33,8 @@ impl PPMImage {
         // loop principal, precisamos converter as coordenadas para topo
         // esquerdo, que é o sistema usado pelo formato PPM.
 
-        let screen_x = (self.width as i32 / 2) + x;
-        let screen_y = (self.height as i32 / 2) + y;
+        let screen_x = (self.width / 2) + x;
+        let screen_y = (self.height / 2) + y;
 
         let index = (screen_y * self.width as i32 + screen_x) as usize;
         self.pixels[index] = color;
