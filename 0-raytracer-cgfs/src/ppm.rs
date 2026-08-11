@@ -23,8 +23,8 @@ impl PPMImage {
         }
         PPMImage {
             filename: name,
-            width: width,
-            height: height,
+            width,
+            height,
             pixels: vec![Color { r: 0, g: 0, b: 0 }; (width * height) as usize],
         }
     }
@@ -39,12 +39,12 @@ impl PPMImage {
         let screen_x = (self.width / 2) + x;
         let screen_y = (self.height / 2) + y;
 
-        let index = (screen_y * self.width as i32 + screen_x) as usize;
+        let index = (screen_y * self.width + screen_x) as usize;
         self.pixels[index] = color;
     }
 
     pub fn save(&self) -> io::Result<()> {
-        let output = File::create(format!("{}.ppm", &self.filename))?;
+        let output = File::create(format!("{}.ppm", self.filename))?;
         let mut writer = BufWriter::new(output);
 
         writeln!(writer, "P3")?;

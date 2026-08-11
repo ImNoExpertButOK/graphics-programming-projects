@@ -59,7 +59,7 @@ fn main() {
                 g: 128,
                 b: 128,
             };
-            img.pixel(x as i32, y as i32, color);
+            img.pixel(x, y, color);
         }
     }
 
